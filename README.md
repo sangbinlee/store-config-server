@@ -73,3 +73,38 @@
 	
 	http://localhost:9999/config/store-prod
 	http://localhost:9999/config/store-dev
+	
+	
+
+# config server 가 바라보는 설정정보 위치
+	https://github.com/sangbinlee/store-config-files.git
+	
+# config client 가 바라보는 설정정보 위치	
+	@Value("${sodi.store.info}")//  git yml key
+	
+		
+	server:
+	  port: 8088
+	  
+	---
+	spring:
+	  application:
+	    name: config-store-dev
+	  config:
+	    import: optional:configserver:http://localhost:9999
+	# test:
+	#   str: test-str
+	
+	# actuator lib set
+	management:
+	  endpoints:
+	    web:
+	      exposure:
+	        include: refresh, health, beans	
+	        
+# TODO 	        
+	# config client 는 각각 msa
+	# 모든 msa 는 config client 로 config server를 통해서 git의 설정정보를 가져온다.
+	
+	# 설정정보를 각 msa는 전역 변수 로 가지고 있어야 하고 그 정보는 암호화 되어있고 
+	사용시 복호화 되어야 함.	        
