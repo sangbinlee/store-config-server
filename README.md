@@ -63,5 +63,13 @@
 	
 		
 # github desktop - push# store-config-server
-# store-config-server
-# store-config-server
+
+
+
+# test url
+	http://localhost:9999/config/prod	
+	http://localhost:9999/config/dev	
+	
+	
+	http://localhost:9999/config/store-prod
+	http://localhost:9999/config/store-dev
